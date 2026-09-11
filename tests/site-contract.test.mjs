@@ -94,7 +94,7 @@ test('client work communicates approved corporate production scope without namin
     '短い時間の中で何を伝え、どのような行動につなげるか',
     '要件整理、制作指示、進行管理、フィードバック対応などのディレクション業務にも携わっています。',
     'PLANNING', 'SCRIPT', 'DIRECTION', 'EDITING', 'QUALITY CONTROL', 'OPERATION', 'ANALYSIS',
-    '企業名および実際の制作物は掲載していません。'
+    '※守秘義務があるため、企業名および実際の制作物は掲載していません。'
   ]) {
     assert.ok(html.includes(phrase));
   }
