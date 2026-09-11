@@ -53,7 +53,7 @@ test('provided copy, supplied Instagram links, and no contact collection exist',
 test('work descriptions reflect the supplied recording and contain no placeholders', () => {
   for (const phrase of [
     '企画・素材準備・撮影・編集',
-    'SONY α7、Premiere Pro',
+    'SONY α7 III、Premiere Pro',
     'DJI Osmo、Premiere Pro',
     'ココナッツバターの活かし方が分かるレシピ',
     '家庭の暮らしになじむ様子をVlog風に撮影',
@@ -72,7 +72,7 @@ test('work copy uses the requested portfolio terminology', () => {
   for (const phrase of [
     '愛犬とおうちカフェ｜ココナッツスコーン',
     '愛犬と作って食べる楽しさを表現。',
-    'SONY α7、Premiere Pro',
+    'SONY α7 III、Premiere Pro',
     'たまねぎぐるりこレシピ',
     'たまねぎぐるりこの魅力と使いやすさ'
   ]) {
