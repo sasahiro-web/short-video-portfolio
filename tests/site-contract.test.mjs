@@ -53,12 +53,12 @@ test('provided copy, supplied Instagram links, and no contact collection exist',
 test('work descriptions reflect the supplied recording and contain no placeholders', () => {
   for (const phrase of [
     '企画・素材準備・撮影・編集',
-    'SONYカメラ、Premiere Pro',
+    'SONY α7、Premiere Pro',
     'DJI Osmo、Premiere Pro',
     'ココナッツバターの活かし方が分かるレシピ',
     '家庭の暮らしになじむ様子をVlog風に撮影',
     'ワンコと一緒に食べられるおやつの工程',
-    'タマネギぐるりこの魅力と使いやすさ',
+    'たまねぎぐるりこの魅力と使いやすさ',
     'レシピパートの企画・撮影、その他素材の編集',
     '調味料選手権に向け、商品の魅力と会社の思い',
     '乾燥野菜を家庭で使いやすく、食べやすいレシピに'
@@ -66,6 +66,20 @@ test('work descriptions reflect the supplied recording and contain no placeholde
     assert.ok(html.includes(phrase));
   }
   assert.equal(html.includes('説明要確認'), false);
+});
+
+test('work copy uses the requested portfolio terminology', () => {
+  for (const phrase of [
+    '愛犬とおうちカフェ｜ココナッツスコーン',
+    '愛犬と作って食べる楽しさを表現。',
+    'SONY α7、Premiere Pro',
+    'たまねぎぐるりこレシピ',
+    'たまねぎぐるりこの魅力と使いやすさ'
+  ]) {
+    assert.ok(html.includes(phrase));
+  }
+  assert.equal(html.includes('Joeyとおうちカフェ｜'), false);
+  assert.equal(html.includes('SONYカメラ'), false);
 });
 
 test('removes unrequested contact, Instagram, ChatGPT, and pet-work link surfaces', () => {
