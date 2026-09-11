@@ -43,11 +43,29 @@ test('all approved videos use safe native player attributes', () => {
 });
 
 test('provided copy, supplied Instagram links, and no contact collection exist', () => {
-  for (const phrase of ['HIROKO SASAKI', '企画から、撮影・編集・投稿まで。', 'PET CONTENT', 'CLIENT WORK', 'WHAT I CAN DO', 'TOOLS', '説明要確認']) {
+  for (const phrase of ['HIROKO SASAKI', '企画から、撮影・編集・投稿まで。', 'PET CONTENT', 'CLIENT WORK', 'WHAT I CAN DO', 'TOOLS']) {
     assert.ok(html.includes(phrase));
   }
 
   assert.doesNotMatch(html, /<form[\s>]|mailto:|tel:/);
+});
+
+test('work descriptions reflect the supplied recording and contain no placeholders', () => {
+  for (const phrase of [
+    '企画・素材準備・撮影・編集',
+    'SONYカメラ、Premiere Pro',
+    'DJI Osmo、Premiere Pro',
+    'ココナッツバターの活かし方が分かるレシピ',
+    '家庭の暮らしになじむ様子をVlog風に撮影',
+    'ワンコと一緒に食べられるおやつの工程',
+    'タマネギぐるりこの魅力と使いやすさ',
+    'レシピパートの企画・撮影、その他素材の編集',
+    '調味料選手権に向け、商品の魅力と会社の思い',
+    '乾燥野菜を家庭で使いやすく、食べやすいレシピに'
+  ]) {
+    assert.ok(html.includes(phrase));
+  }
+  assert.equal(html.includes('説明要確認'), false);
 });
 
 test('removes unrequested contact, Instagram, ChatGPT, and pet-work link surfaces', () => {
