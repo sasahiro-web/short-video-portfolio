@@ -76,7 +76,8 @@ h1, h2, h3 { margin: 0; text-wrap: balance; }
 .section-intro > p:last-child { max-width: 40ch; margin: var(--space-4) 0 0; color: var(--muted); text-wrap: pretty; }
 .section-intro--compact h2, .section-intro--compact h3 { margin-top: var(--space-2); font-size: clamp(1.6rem, 3vw, 2.5rem); letter-spacing: -0.04em; line-height: 1; }
 
-.works-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: var(--space-6) var(--space-4); margin-top: var(--space-7); }
+.portrait-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: start; gap: var(--space-6) var(--space-4); margin-top: var(--space-7); }
+.landscape-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6) var(--space-4); margin-top: var(--space-7); }
 .work-card { min-width: 0; }
 .video-frame { overflow: hidden; background: var(--ink); }
 .video-frame video { display: block; width: 100%; height: auto; max-width: 100%; background: var(--ink); }
@@ -87,10 +88,6 @@ h1, h2, h3 { margin: 0; text-wrap: balance; }
 .work-meta dt { color: var(--muted); }
 .work-meta dd { margin: 0; }
 
-.work-card--landscape { display: grid; grid-column: span 2; grid-template-columns: minmax(0, 1.5fr) minmax(14rem, 0.8fr); gap: var(--space-4); }
-.work-card--landscape .work-meta { padding-top: 0; }
-.other-work { margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--ink); }
-.work-card--compact { width: min(100%, 58rem); margin-top: var(--space-5); }
 
 .split-section { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(18rem, 1.2fr); gap: var(--space-7); }
 .split-section--tint { width: 100%; padding-inline: max(1.5rem, calc((100% - 76rem) / 2)); background: var(--tint); border-top-color: transparent; }
@@ -123,8 +120,7 @@ h1, h2, h3 { margin: 0; text-wrap: balance; }
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; min-height: auto; gap: var(--space-6); }
   .hero-detail { max-width: 32rem; }
-  .works-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .work-card--landscape { grid-column: span 2; }
+  .portrait-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .split-section, .contact-panel { grid-template-columns: 1fr; gap: var(--space-5); }
   .contact-panel > p { max-width: 36ch; }
 }
@@ -133,9 +129,7 @@ h1, h2, h3 { margin: 0; text-wrap: balance; }
   .site-header { align-items: flex-start; flex-direction: column; justify-content: center; padding-block: var(--space-3); }
   .site-nav { width: 100%; justify-content: flex-start; overflow-x: auto; padding-bottom: var(--space-1); }
   .hero h1 { font-size: clamp(3.55rem, 18vw, 5.7rem); }
-  .works-grid { grid-template-columns: 1fr; gap: var(--space-6); }
-  .work-card--landscape { display: block; grid-column: auto; }
-  .work-card--landscape .work-meta { padding-top: var(--space-3); }
+  .portrait-grid, .landscape-grid { grid-template-columns: 1fr; gap: var(--space-6); }
   .scope-list, .public-links ul { grid-template-columns: 1fr; }
   .scope-list li:nth-child(odd) { padding-right: 0; }
   .capability-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }

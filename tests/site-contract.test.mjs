@@ -65,7 +65,16 @@ test('responsive and exclusive-playback affordances exist', () => {
 
 test('secondary sections keep an intentional visual rhythm', () => {
   const sectionLabels = html.match(/class="section-index"/g) || [];
-  assert.equal(sectionLabels.length, 2);
+  assert.equal(sectionLabels.length, 1);
   assert.ok((html.match(/page-section--compact/g) || []).length >= 3);
   assert.ok(css.includes('.page-section--compact'));
+});
+
+test('works group portrait and landscape videos without an additional-work section', () => {
+  assert.equal((html.match(/class="work-card work-card--portrait"/g) || []).length, 4);
+  assert.equal((html.match(/class="work-card work-card--landscape"/g) || []).length, 2);
+  assert.match(html, /class="portrait-grid"[\s\S]*class="landscape-grid"/);
+  assert.doesNotMatch(html, /OTHER WORK|Additional work/);
+  assert.ok(css.includes('.portrait-grid'));
+  assert.ok(css.includes('.landscape-grid'));
 });
