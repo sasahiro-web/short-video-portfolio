@@ -1,0 +1,7 @@
+{
+  "name": "short-video-portfolio",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/site-contract.test.mjs"
+  }
+}
