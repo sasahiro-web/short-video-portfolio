@@ -54,7 +54,7 @@ test('work descriptions reflect the supplied recording and contain no placeholde
   for (const phrase of [
     '企画・素材準備・撮影・編集',
     'SONY α7 III、Premiere Pro',
-    'DJI Osmo、Premiere Pro',
+    'DJI Osmo Pocket、Premiere Pro',
     'ココナッツバターの活かし方が分かるレシピ',
     '家庭の暮らしになじむ様子をVlog風に撮影',
     'ワンコと一緒に食べられるおやつの工程',
