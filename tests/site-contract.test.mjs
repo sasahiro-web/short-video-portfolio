@@ -21,7 +21,7 @@ test('metadata and required page sections exist', () => {
   assert.equal(html.includes('rel="canonical"'), false);
   assert.equal(html.includes('property="og:url"'), false);
 
-  for (const id of ['works', 'pet-content', 'client-work', 'capabilities', 'tools', 'contact']) {
+  for (const id of ['works', 'pet-content', 'client-work', 'capabilities', 'tools']) {
     assert.ok(html.includes('id="' + id + '"'));
   }
 });
@@ -43,15 +43,31 @@ test('all approved videos use safe native player attributes', () => {
 });
 
 test('provided copy, supplied Instagram links, and no contact collection exist', () => {
-  for (const phrase of ['HIROKO SASAKI', '企画から、撮影・編集・投稿まで。', 'PET CONTENT', 'CLIENT WORK', 'WHAT I CAN DO', 'TOOLS', 'CONTACT', '説明要確認']) {
+  for (const phrase of ['HIROKO SASAKI', '企画から、撮影・編集・投稿まで。', 'PET CONTENT', 'CLIENT WORK', 'WHAT I CAN DO', 'TOOLS', '説明要確認']) {
     assert.ok(html.includes(phrase));
   }
 
-  for (const id of ['DPTT-sBk90f', 'DXjTuExCghM', 'DMhd0-hTy1y', 'DNXiM93xoNe']) {
-    assert.ok(html.includes(id));
-  }
-
   assert.doesNotMatch(html, /<form[\s>]|mailto:|tel:/);
+});
+
+test('removes unrequested contact, Instagram, ChatGPT, and pet-work link surfaces', () => {
+  for (const phrase of ['id="contact"', 'INSTAGRAM', 'instagram.com/', 'ChatGPT', 'Joeyとおうちカフェの作品を見る']) {
+    assert.equal(html.includes(phrase), false);
+  }
+});
+
+test('client work communicates approved corporate production scope without naming clients', () => {
+  for (const phrase of [
+    '上場企業・大手企業を含むクライアントのSNS／ショート動画制作案件に携わっています。',
+    '短い時間の中で何を伝え、どのような行動につなげるか',
+    '要件整理、制作指示、進行管理、フィードバック対応などのディレクション業務にも携わっています。',
+    'PLANNING', 'SCRIPT', 'DIRECTION', 'EDITING', 'QUALITY CONTROL', 'OPERATION', 'ANALYSIS',
+    '企業名および実際の制作物は掲載していません。'
+  ]) {
+    assert.ok(html.includes(phrase));
+  }
+  assert.ok(css.includes('.client-roles'));
+  assert.ok(css.includes('.confidentiality-note'));
 });
 
 test('responsive and exclusive-playback affordances exist', () => {
@@ -66,7 +82,7 @@ test('responsive and exclusive-playback affordances exist', () => {
 test('secondary sections keep an intentional visual rhythm', () => {
   const sectionLabels = html.match(/class="section-index"/g) || [];
   assert.equal(sectionLabels.length, 1);
-  assert.ok((html.match(/page-section--compact/g) || []).length >= 3);
+  assert.ok((html.match(/page-section--compact/g) || []).length >= 1);
   assert.ok(css.includes('.page-section--compact'));
 });
 
