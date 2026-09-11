@@ -62,3 +62,10 @@ test('responsive and exclusive-playback affordances exist', () => {
   assert.ok(js.includes("video.addEventListener('play'"));
   assert.ok(js.includes('otherVideo.pause()'));
 });
+
+test('secondary sections keep an intentional visual rhythm', () => {
+  const sectionLabels = html.match(/class="section-index"/g) || [];
+  assert.equal(sectionLabels.length, 2);
+  assert.ok((html.match(/page-section--compact/g) || []).length >= 3);
+  assert.ok(css.includes('.page-section--compact'));
+});

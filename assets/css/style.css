@@ -70,6 +70,7 @@ h1, h2, h3 { margin: 0; text-wrap: balance; }
 .hero-detail p + p { margin-top: var(--space-3); color: var(--muted); }
 
 .page-section { padding-block: var(--space-8); border-top: 1px solid var(--line); }
+.page-section--compact { padding-block: var(--space-7); }
 .section-intro { max-width: 43rem; }
 .section-intro h2 { margin-top: var(--space-2); font-size: clamp(2rem, 4.5vw, 4rem); letter-spacing: -0.045em; line-height: 0.97; }
 .section-intro > p:last-child { max-width: 40ch; margin: var(--space-4) 0 0; color: var(--muted); text-wrap: pretty; }
