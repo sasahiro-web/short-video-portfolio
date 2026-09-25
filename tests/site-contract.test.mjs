@@ -91,8 +91,9 @@ test('removes unrequested contact, Instagram, ChatGPT, and pet-work link surface
 test('client work communicates approved corporate production scope without naming clients', () => {
   for (const phrase of [
     '上場企業・大手企業を含むクライアントのSNS／ショート動画制作案件に携わっています。',
+    '企業からの依頼内容・要件をもとに、ショート動画の企画・構成、台本制作、制作ディレクション、編集、品質チェック、修正対応、公開後の分析・レポートまで、案件に応じて幅広く担当。',
     '短い時間の中で何を伝え、どのような行動につなげるか',
-    '要件整理、制作指示、進行管理、フィードバック対応などのディレクション業務にも携わっています。',
+    '要件整理、制作指示、進行管理、フィードバックといったディレクション業務も対応可能です。',
     'PLANNING', 'SCRIPT', 'DIRECTION', 'EDITING', 'QUALITY CONTROL', 'OPERATION', 'ANALYSIS',
     '※守秘義務があるため、企業名および実際の制作物は掲載していません。'
   ]) {
