@@ -15,6 +15,15 @@ const sources = [
   'materials/videoplayback.mp4'
 ];
 
+const posters = [
+  'assets/posters/coconut-scone.jpg',
+  'assets/posters/pet-plate.jpg',
+  'assets/posters/carrot-cheesecake-tart.jpg',
+  'assets/posters/onion-gururiko.jpg',
+  'assets/posters/seasoning-pr.jpg',
+  'assets/posters/cooking-short.jpg'
+];
+
 test('metadata and required page sections exist', () => {
   assert.ok(html.includes('<title>Short Video Portfolio | HIROKO SASAKI</title>'));
   assert.ok(html.includes('name="description" content="SNS・TikTok・Instagram Reelsを中心としたショート動画制作ポートフォリオ。企画・構成・撮影・編集・SNSコンテンツ制作。"'));
@@ -39,6 +48,13 @@ test('all approved videos use safe native player attributes', () => {
     assert.match(player, /\bcontrols\b/);
     assert.match(player, /\bplaysinline\b/);
     assert.doesNotMatch(player, /\bautoplay\b|\bmuted\b/);
+  }
+});
+
+test('each video has a supplied poster image for deterministic first paint', () => {
+  for (const poster of posters) {
+    assert.equal(existsSync(new URL('../' + poster, import.meta.url)), true);
+    assert.ok(html.includes('poster="' + poster + '"'));
   }
 });
 
