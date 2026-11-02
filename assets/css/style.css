@@ -128,6 +128,7 @@ h1, h2, h3 { margin: 0; text-wrap: balance; }
   .site-header { align-items: flex-start; flex-direction: column; justify-content: center; padding-block: var(--space-3); }
   .site-nav { width: 100%; justify-content: flex-start; overflow-x: auto; padding-bottom: var(--space-1); }
   .hero h1 { font-size: clamp(3.55rem, 18vw, 5.7rem); }
+  .hero-lead__statement { white-space: nowrap; font-size: clamp(0.85rem, 4vw, 0.95rem); letter-spacing: -0.04em; }
   .portrait-grid, .landscape-grid { grid-template-columns: 1fr; gap: var(--space-6); }
   .client-roles { grid-template-columns: 1fr; }
   .client-roles > div:nth-child(odd) { padding-right: 0; }

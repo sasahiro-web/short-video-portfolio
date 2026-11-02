@@ -128,6 +128,11 @@ test('responsive and exclusive-playback affordances exist', () => {
   assert.ok(js.includes('otherVideo.pause()'));
 });
 
+test('hero statement stays together on small screens', () => {
+  assert.ok(html.includes('<span class="hero-lead__statement">「伝えたいこと」を、短い動画に整理します。</span>'));
+  assert.ok(css.includes('.hero-lead__statement { white-space: nowrap; font-size: clamp(0.85rem, 4vw, 0.95rem); letter-spacing: -0.04em; }'));
+});
+
 test('secondary sections keep an intentional visual rhythm', () => {
   const sectionLabels = html.match(/class="section-index"/g) || [];
   assert.equal(sectionLabels.length, 1);
