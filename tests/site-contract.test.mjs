@@ -131,6 +131,7 @@ test('responsive and exclusive-playback affordances exist', () => {
 test('hero statement stays together on small screens', () => {
   assert.ok(html.includes('<span class="hero-lead__statement">「伝えたいこと」を、短い動画に整理します。</span>'));
   assert.ok(css.includes('.hero-lead__statement { white-space: nowrap; font-size: clamp(0.85rem, 4vw, 0.95rem); letter-spacing: -0.04em; }'));
+  assert.ok(html.includes('href="assets/css/style.css?v=20261102"'));
 });
 
 test('secondary sections keep an intentional visual rhythm', () => {
