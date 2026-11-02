@@ -149,3 +149,8 @@ test('works group portrait and landscape videos without an additional-work secti
   assert.ok(css.includes('.portrait-grid'));
   assert.ok(css.includes('.landscape-grid'));
 });
+
+test('portrait videos use a consistent 9:16 presentation frame', () => {
+  assert.ok(css.includes('.work-card--portrait .video-frame { aspect-ratio: 9 / 16; }'));
+  assert.ok(css.includes('.work-card--portrait .video-frame video { width: 100%; height: 100%; object-fit: cover; object-position: center; }'));
+});

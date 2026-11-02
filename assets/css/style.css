@@ -81,6 +81,8 @@ h1, h2, h3 { margin: 0; text-wrap: balance; }
 .work-card { min-width: 0; }
 .video-frame { overflow: hidden; background: var(--ink); }
 .video-frame video { display: block; width: 100%; height: auto; max-width: 100%; background: var(--ink); }
+.work-card--portrait .video-frame { aspect-ratio: 9 / 16; }
+.work-card--portrait .video-frame video { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .work-meta { padding-top: var(--space-3); }
 .work-meta h3 { margin-top: var(--space-2); font-size: 1.15rem; letter-spacing: -0.02em; line-height: 1.35; }
 .work-meta dl { display: grid; gap: 0; margin: var(--space-4) 0 0; border-top: 1px solid var(--line); }
